@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  href="/templates/main.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="color:rgb(11, 11, 22)">
+        <form action="{{ url_for('predict')}}" method="POST">
+            <fieldset>
+            <h2 id="title">Customer-Churn Analysis</h2>
+            </fieldset>
+            <div id="cont"> 
+                <div>
+                
+                    <h3> What is the Gender of customer ?</h3>
+                    <select onchange="changeRes()" name="Gender" id="first_feature" required="required">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="female">others</option>
+                </select>
+            </div>
+            <div>
+                <h3>Customer is a seniorcitizen ?</h3>
+                <select onchange="changeRes()" name="seniorcitizenship" id="two" required="required">
+                    <option value='no'>No</option>
+                    <option value='yes'>yes</option>
+                </select>
+            </div>
+            <div>
+                <h3> Does Customer sign up for  dependents ?</h3>
+                
+                <select onchange="changeRes()" name="dependents" id="three" required="required">
+                    <option value='no'>No</option>
+                    <option value='yes'>yes</option>
+                </select>
+            </div>
+            <div>
+                <h3>Does customer has phone service(yes/no)</h3>
+                
+                <select onchange="changeRes()" name="phoneservice" id="four" required="required">
+                    <option value='no'>No</option>
+                    <option value='yes'>yes</option>
+                </select>
+            </div>
+            <div>
+                <h3>Does customer has multiple lines or not (Yes, No, No phone service) </h3>
+                
+                <select onchange="changeRes()" name="multiplelines" id="five" required="required">
+                    <option value='no'>No</option>
+                    <option value='yes'>yes</option>
+                    <option value='yes'>No phone service</option>
+                </select>
+            </div>
+            <div>
+                <h3>Does customer has online security or not (Yes, No, No internet service)</h3>
+                
+                <select onchange="changeRes()" name="onlinebackup" id="six" required="required">
+                    <option value='no'>No</option>
+                    <option value='yes'>yes</option>
+                    <option value='yes'>No internet services</option>
+
+                </select>
+            </div>
+            <div>
+                <h3> Customer has onlinesecurity(or not)</h3>
+                
+                <select onchange="changeRes()" name="onlinesecurity" id="seven" required="required">
+                    <option value='no'>No</option>
+                    <option value='yes'>yes</option>
+                </select>
+            </div>
+            <div>
+                <h3>customer has deviceprotection ?</h3>
+                
+                <select onchange="changeRes()" name="deviceprotection" id="eight" required="required">
+                    <option value='no'>No</option>
+                    <option value='yes'>yes</option>
+                </select>
+            </div>
+            <div>
+                <h3>Does Customer has techsupport ?</h3>
+                
+                <select onchange="changeRes()" name="ts" id="Nine" required="required">
+                    <option value='no'>No</option>
+                    <option value='yes'>yes</option>
+                </select>
+            </div>
+            <div>
+                <h3>Does cutomer has signedup streamingmovies ?</h3>
+                
+                <select onchange="changeRes()" name="s_movies" id="ten" required="required">
+                    <option value='no'>No</option>
+                    <option value='yes'>yes</option>
+                </select>
+            </div>
+            <div>
+                <h3>Does customer has signed up for streamingtv ?</h3>
+                
+                <select onchange="changeRes()" name="streamingtv" id="eleven" required="required">
+                    <option value='no'>No</option>
+                    <option value='yes'>yes</option>
+                </select>
+            </div>
+            <div>
+                <h3>Does cusotmer has paperlessbilling  ?</h3>
+                
+                <select onchange="changeRes()" name="paperlessbilling" id="twelece" required="required">
+                    <option value='no'>No</option>
+                    <option value='yes'>yes</option>
+                </select>
+            </div>
+            <div>
+                <h3> which type of internetservice_ cutomer has ?</h3>
+                
+                <select onchange="changeRes()" name="internetservice" id="thirteen" required="required">
+                    <option value='fiber_optic'>fiber_optic</option>
+                    <option value='fiber_optic'>DSL</option>
+                    <option value='others'>others</option>
+                    <option value='fiber_optic'>No</option>
+                </select>
+            </div>
+            <div>
+                <h3>which type of contract customer signed up for  ?</h3>
+                
+                <select onchange="changeRes()" name="contract" id="fourteen" required="required">
+                    <option value='month-to-month'>month-to-month</option>
+                    <option value='others'>year-to-year</option>
+                    <option value='others'>others</option>
+                </select>
+            </div>
+            <div>
+                <h3> Does customer has  any partners ?</h3>
+                <select onchange="changeRes()" name="partners" id="fifteen" required="required">
+                    <option value='yes'>yes</option>
+                    <option value='no'>no</option>
+                </select>
+            </div>
+            <div>
+                <h3> what are the paymentmethod ? </h3>
+                <select onchange="changeRes()" name="paymentmethod"id="payment" required="required">
+                    <option value='electronic_check'>electronic_check</option>
+                    <option value='electronic_check'>debit card</option>
+                    <option value='others'>others</option>
+                </select>
+            </div>
+            <div>
+                <h3>What are the number of months the customer has stayed with the company ?</h3><br>
+                <input  onchange="changeRes()" id="second" name="tenure" required="required">
+            </div>
+            <div>
+                <h3>What are the monthlycharges ?(numeric form)</h3><br>
+                <input onchange="changeRes()" id="second" name="monthlycharges" required="required">
+            </div>
+            <div>
+                <h3>What are the totalcharges ?</h3><br>
+                <input onchange="changeRes()" id="second" name="totalcharges" required="required">
+            </div>
+            
+        </div>
+            <br><br><button id="sub" type="submit ">submit</button>
+            <br>
+        </form>
+        <br><br><h3 class="result">{{ prediction_text }}<h3>
+    </div>
+    <script>
+        let changeRes = ()=>{
+            console.log("hey");
+            var res = document.getElementsByClassName('result')[0];
+            res.innerHTML = "";
+        }
+    </script>
+     <style>
+        #title
+        {
+            font-size: xx-large;
+            color: black;
+        }
+        fieldset {
+        background-color: #eeeeee;
+        }
+
+        legend {
+        background-color: gray;
+        color: white;
+        padding: 5px 10px;
+        }
+
+        input {
+        margin: 5px;
+        }
+        body {
+            background-color: lightslategray;
+            text-align: center;
+            padding: 0px;
+        }
+        
+        #research {
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+        
+        #fuel {
+            width: 83px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #fuel:hover {
+            background-color: coral;
+        }
+        
+        #research {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #research:hover {
+            background-color: coral;
+        }
+        
+        #resea {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #resea:hover {
+            background-color: coral;
+        }
+        
+        #sub {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: darkcyan;
+        }
+        
+        #first {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #second {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #third {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #fourth {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        #cont{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+        }
+    </style>
+</body>
+
+</html>
